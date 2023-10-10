@@ -3,7 +3,7 @@ from config import *
 from database import db
 from sqlalchemy import text
 import threading
-from deployer import deploy, kill
+from deployer import deploy, kill, pull
 from functools import wraps
 from auth import auth
 from database import Deployment
@@ -96,6 +96,7 @@ def get_active_deployments(user_id):
 @auth.login_required
 @secure(["image_id", "user_id"])
 def deploy_image(image_id, user_id):
+    pull()
     deployment = Deployment.query.filter_by(
         user_id=user_id, image_id=image_id).first()
     if deployment is None:

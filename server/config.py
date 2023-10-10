@@ -1,7 +1,11 @@
+#!/opt/homebrew/bin/python3
 import os
 import yaml
 
 config = {}
+
+#with open("./config/config.yaml", "r+") as test:
+#    print("success!")
 
 with open("./config/config.yaml", "r") as stream:
     try:
@@ -64,3 +68,5 @@ credentials = {
 }
 
 images = config["images"]
+
+#print(images,"config.py")
