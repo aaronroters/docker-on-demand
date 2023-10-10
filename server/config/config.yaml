@@ -1,9 +1,10 @@
 version: 1.0
 
 images:
+  nginx:
+    local_port: 80
   image_name:
-    local_port: 8080
-
+    local_port: 81
 app_conf:
   port_start: 40000
   port_end: 60000
